@@ -6,8 +6,7 @@ from pygame.rect import *
 pygame.init()
 pygame.display.set_caption("DDRGAME")
 
-#======== 함수 ===============================
-#키 이벤트 처리하기
+
 def resultProcess(direction):
     global isColl, score, DrawResult, result_ticks
 
@@ -40,8 +39,7 @@ def eventProcess():
                     chance = chance_MAX
                     for direc in Directions:
                         direc.y = -1
-###################################################################################
-#방향 아이콘 클래스
+
 class Direction(object):
     def __init__(self):
         self.pos = None
@@ -67,8 +65,7 @@ class Direction(object):
             self.y += 1
             self.pos = screen.blit(self.rotated_image, (self.x, self.y))
             return False
-###################################################################################
-#방향 아이콘 생성과 그리기
+
 def drawIcon():
     global start_ticks,chance
 
@@ -87,8 +84,7 @@ def drawIcon():
     for direc in Directions:
         if direc.draw():            
             chance -= 1
-###################################################################################
-#타겟 영역 그리기와 충돌 확인하기
+
 def draw_targetArea():
     global isColl, CollDirection
     isColl = False
@@ -102,7 +98,7 @@ def draw_targetArea():
             break
     pygame.draw.rect(screen, (0, 255, 0), targetArea, 5)
 ###################################################################################
-#문자 넣기
+
 def setText():
     global score, chance
     mFont = pygame.font.SysFont("굴림", 40)
@@ -121,7 +117,7 @@ def setText():
         tRec.centery = SCREEN_HEIGHT/2 - 40
         screen.blit(mtext, tRec)
 ###################################################################################
-#결과 이모티콘 그리기
+
 def drawResult():
     global DrawResult, result_ticks
     if result_ticks > 0:
@@ -131,7 +127,7 @@ def drawResult():
             DrawResult = 0
     screen.blit(resultImg[DrawResult], resultImgRec)
 ###################################################################################
-#========= 변수 =================================
+
 isActive = True
 SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
