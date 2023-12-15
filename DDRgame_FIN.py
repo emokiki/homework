@@ -4,7 +4,7 @@ from pygame.rect import *
 
 #pygame 초기화
 pygame.init()
-pygame.display.set_caption("codingnow.co.kr")
+pygame.display.set_caption("DDRGAME")
 
 #======== 함수 ===============================
 #키 이벤트 처리하기
